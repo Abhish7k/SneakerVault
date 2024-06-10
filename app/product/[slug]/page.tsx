@@ -1,4 +1,5 @@
 import ImageGallery from "@/components/ImageGallery";
+import { Button } from "@/components/ui/button";
 import { client } from "@/lib/sanity";
 
 interface fullProduct {
@@ -54,6 +55,11 @@ export default async function ProductPage({
               <div className="text-sm font-medium text-black/[0.5]">
                 incl. of taxes
               </div>
+            </div>
+
+            <div className="flex gap-2 mt-10">
+              <Button>Add to Bag</Button>
+              <Button variant="secondary">Checkout now</Button>
             </div>
 
             <div>
