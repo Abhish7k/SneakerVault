@@ -37,10 +37,32 @@ export default async function ProductPage({
   const data: fullProduct = await getData(params.slug);
 
   return (
-    <div className="bg-white">
+    <div className="mt-20">
       <div className="mx-auto max-w-screen-xl px-4 md:px-8">
         <div className="grid gap-8 md:grid-cols-2">
           <ImageGallery images={data.images} />
+
+          <div className="flex-col py-3 px-10">
+            <div className="text-2xl font-semibold mb-2 leading-tight">
+              {data.name}
+            </div>
+
+            <div className="text-lg font-medium mb-5">{data.categoryName}</div>
+
+            <div className="flex-col items-center">
+              <p className="mr-2 text-lg font-medium">MRP : ₹ {data.price}</p>
+              <div className="text-sm font-medium text-black/[0.5]">
+                incl. of taxes
+              </div>
+            </div>
+
+            <div>
+              <div className="text-lg font-semibold mt-10 mb-5">
+                Product Details
+              </div>
+              <p className="text-base tracking-wide">{data.description}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
