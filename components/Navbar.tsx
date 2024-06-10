@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "./ui/button";
 import { ShoppingBag } from "lucide-react";
+import { useShoppingCart } from "use-shopping-cart";
 
 const links = [
   { name: "Men", href: "/Men" },
@@ -13,6 +14,7 @@ const links = [
 
 export default function Navbar() {
   const pathname = usePathname();
+  const { handleCartClick, cartCount } = useShoppingCart();
 
   return (
     <header className="mb-10 border-b">
@@ -50,9 +52,15 @@ export default function Navbar() {
           </nav>
 
           {/* cart */}
-          <Button className="flex items-center justify-center gap-2 ">
+          <Button
+            className="flex items-center justify-center gap-2"
+            onClick={() => handleCartClick()}
+          >
             <ShoppingBag className="w-5" />
             <span className="hidden text-lg font-semibold sm:block ">Cart</span>
+            <span className="-ml-1">
+              {cartCount && cartCount > 0 ? <span>({cartCount})</span> : ""}
+            </span>
           </Button>
         </div>
       </div>

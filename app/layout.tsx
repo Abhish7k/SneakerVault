@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import CartProvider from "@/components/Providers";
+import ShoppingCartModal from "@/components/ShoppingCartModal";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -30,6 +31,7 @@ export default function RootLayout({
       >
         <CartProvider>
           <Navbar />
+          <ShoppingCartModal />
           {children}
         </CartProvider>
       </body>
