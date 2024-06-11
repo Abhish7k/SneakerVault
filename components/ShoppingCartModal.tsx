@@ -23,8 +23,10 @@ export default function ShoppingCartModal() {
 
   async function handleCheckoutClick(event: any) {
     event.preventDefault();
+
     try {
       const result = await redirectToCheckout();
+
       if (result?.error) {
         console.log("result");
       }
