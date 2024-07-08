@@ -1,112 +1,54 @@
-"use client";
-
 import Link from "next/link";
-import React from "react";
-import { FaFacebookF, FaTwitter, FaYoutube, FaInstagram } from "react-icons/fa";
+import { SiGithub, SiLinkedin, SiX } from "react-icons/si";
 
-const Footer = () => {
+export default function Footer() {
   return (
-    <footer className="bg-black text-white mt-32 py-14 px-60 items-center">
-      <div className="flex justify-between flex-col md:flex-row gap-[50px] md:gap-0">
-        <div className="flex gap-[50px] md:gap-[75px] lg:gap-[100px] flex-col md:flex-row">
-          <div className="flex flex-col gap-3 shrink-0">
-            <div className="font-oswald font-medium uppercase text-sm cursor-pointer">
-              become a partner
-            </div>
-            <div className="font-oswald font-medium uppercase text-sm cursor-pointer">
-              sign up for email
-            </div>
-            <div className="font-oswald font-medium uppercase text-sm cursor-pointer">
-              send us feedback
-            </div>
-            <div className="font-oswald font-medium uppercase text-sm cursor-pointer">
-              student discount
-            </div>
-          </div>
-
-          <div className="flex gap-[50px] md:gap-[75px] lg:gap-[100px] shrink-0">
-            <div className="flex flex-col gap-3">
-              <div className="font-oswald font-medium uppercase text-sm">
-                get help
-              </div>
-              <div className="text-sm text-white/[0.5] hover:text-white cursor-pointer">
-                Order Status
-              </div>
-              <div className="text-sm text-white/[0.5] hover:text-white cursor-pointer">
-                Delivery
-              </div>
-              <div className="text-sm text-white/[0.5] hover:text-white cursor-pointer">
-                Returns
-              </div>
-              <div className="text-sm text-white/[0.5] hover:text-white cursor-pointer">
-                Payment Options
-              </div>
-              <div className="text-sm text-white/[0.5] hover:text-white cursor-pointer">
-                Contact Us
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-3">
-              <div className="font-oswald font-medium uppercase text-sm">
-                About Us
-              </div>
-              <div className="text-sm text-white/[0.5] hover:text-white cursor-pointer">
-                News
-              </div>
-              <div className="text-sm text-white/[0.5] hover:text-white cursor-pointer">
-                Careers
-              </div>
-              <div className="text-sm text-white/[0.5] hover:text-white cursor-pointer">
-                Investors
-              </div>
-              <div className="text-sm text-white/[0.5] hover:text-white cursor-pointer">
-                Sustainability
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex gap-4 justify-center md:justify-start">
-          <div
-            onClick={() => window.open("https://facebook.com", "_blank")}
-            className="w-10 h-10 rounded-full bg-white/[0.3] flex items-center justify-center text-black hover:bg-white/[0.7] cursor-pointer "
-          >
-            <FaFacebookF size={20} />
-          </div>
-          <Link
-            href="https://twitter.com"
-            className="w-10 h-10 rounded-full bg-white/[0.3] flex items-center justify-center text-black hover:bg-white/[0.7] cursor-pointer"
-          >
-            <FaTwitter size={20} />
-          </Link>
-          <div className="w-10 h-10 rounded-full bg-white/[0.3] flex items-center justify-center text-black hover:bg-white/[0.7] cursor-pointer">
-            <FaYoutube size={20} />
-          </div>
-          <div className="w-10 h-10 rounded-full bg-white/[0.3] flex items-center justify-center text-black hover:bg-white/[0.7] cursor-pointer">
-            <FaInstagram size={20} />
-          </div>
-        </div>
+    <div className="mx-auto max-w-2xl mt-20 px-4 py-10 lg:max-w-7xl lg:px-8 border-t flex justify-between items-center">
+      <div>
+        Built by{" "}
+        <Link
+          href="https://github.com/Abhish7k"
+          target="_blank"
+          className="font-medium hover:underline"
+        >
+          Abhish7k
+        </Link>
       </div>
-      <div className="flex justify-between mt-10 flex-col md:flex-row gap-[10px] md:gap-0">
-        <div className="text-[12px] text-white/[0.5] hover:text-white cursor-pointer text-center md:text-left"></div>
 
-        <div className="flex gap-2 md:gap-5 text-center md:text-left flex-wrap justify-center">
-          <div className="text-[12px] text-white/[0.5] hover:text-white cursor-pointer">
-            Guides
-          </div>
-          <div className="text-[12px] text-white/[0.5] hover:text-white cursor-pointer">
-            Terms of Sale
-          </div>
-          <div className="text-[12px] text-white/[0.5] hover:text-white cursor-pointer">
-            Terms of Use
-          </div>
-          <div className="text-[12px] text-white/[0.5] hover:text-white cursor-pointer">
-            Privacy Policy
-          </div>
-        </div>
+      <div className="flex gap-4">
+        {socials.map((social) => {
+          return (
+            <Link
+              key={social.label}
+              href={social.link}
+              aria-label={social.label}
+              className=""
+              target="_blank"
+            >
+              <social.icon className="w-5 h-5 hover:scale-110 transition-all" />
+            </Link>
+          );
+        })}
       </div>
-    </footer>
+    </div>
   );
-};
+}
 
-export default Footer;
+const socials = [
+  {
+    label: "GitHub",
+    icon: SiGithub,
+    link: "https://github.com/Abhish7k",
+  },
+
+  {
+    label: "Twitter",
+    icon: SiX,
+    link: "https://twitter.com/abhizh7k",
+  },
+  {
+    label: "LinkedIn",
+    icon: SiLinkedin,
+    link: "https://www.linkedin.com/in/abhish7k",
+  },
+];
